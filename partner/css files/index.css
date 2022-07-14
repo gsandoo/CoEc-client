@@ -41,6 +41,7 @@ body{
 }
 .paragraph{
     font-size: 1.2em;
+    color: #999999;
 }
 
 
@@ -63,6 +64,7 @@ body{
     border: none;
     border-radius: 100px;
     padding-right: 1vw;
+    text-align: center;
 }
 .search-input:focus{
     border: none;
