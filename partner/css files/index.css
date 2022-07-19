@@ -1,0 +1,107 @@
+html {font-family: 'Cardo', serif;
+font-family: 'Do Hyeon', sans-serif;
+font-family: 'Jua', sans-serif;
+font-family: 'Noto Sans KR', sans-serif;
+font-family: 'Roboto', sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search{
+    width: 100%;
+    height: 20%;
+    
+}
+
+.title{
+    width: 100%;
+
+    display: flex;
+}
+
+
+/* 글자 박스 */
+.paragraph-box{
+    width: 40%;
+    height: 20%;
+    padding-left: 10%;
+}
+.title-section {
+    font-size: 1.7em;
+}
+.paragraph{
+    font-size: 1.2em;
+    color: #999999;
+}
+
+
+
+/* 검색 박스 */
+.search-box{
+    width: 60%;
+}
+
+.search-section{
+    width: 70%;
+    height: 30%;
+    border: 1px solid gray;
+    border-radius: 100px;
+}
+
+.search-input{
+    width: 85%;
+    height: 90%;
+    border: none;
+    border-radius: 100px;
+    padding-right: 1vw;
+    text-align: center;
+}
+.search-input:focus{
+    border: none;
+
+}
+.search-btn{
+    border: none;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    margin-left: 1vw;
+    background-color: #ffffff;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.search-img{
+    width: 20px;
+}
+
+
+
+/* 게시물 등록 네비바 */
+#register-section{
+    width: 100%;
+    height: 10vh;
+}
+.register-btn{
+    background-color: cornflowerblue;
+    float: right;
+    margin-right: 15vw;
+    margin-top: 2.5vh;
+    height: 5vh;
+    width: 15%;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #ffffff;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+}
