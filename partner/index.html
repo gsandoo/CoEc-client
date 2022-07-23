@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
     <title>운동으로 만나는 우리, 코엣</title>
-    <link rel="icon" href="">
+    <link rel="icon" href="../partner/image/헤더/Coec.png">
  
     <link rel="stylesheet" href="./css files/index.css">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -25,23 +25,33 @@
                     원하는 종목의 파트너를 검색해 보세요 !
                 </p>
             </div>
-            <form action="/api/v1/posts/partners/:postId" method="post" class="search-box flex">
-                <div class="search-section flex" >
-                    <select class="search-toggle">
-                        <option value="none" selected disabled>검색해보세요!</option>
-                        <option value="football">축구</option>
-                        <option value="baseball">야구</option>
-                        <option value="basketball">농구</option>
-                        <option value="badminton">배드민턴</option>
-                        <option value="tennis">테니스</option>
-                        <option value="etc">기타</option>
-                    </select>
-                    <input type="text" name="query" class="search-input" >
-                    <button type="submit" class="search-btn flex">
-                        <img class="search-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxRx3iRICA1KnyXkKP7MgQJGVmnuLCcWBtj-_UCyVxCID3RvvC0bkZjcNgV9UfOJVEWz8&usqp=CAU" alt="search-btn">
-                    </button>
-                </div>
-            </form>
+            <div id="search-container" >
+                <form action="/api/v1/posts/partners" method="get" class="search-box flex">
+                    <div class="search-section flex" >
+                        <select class="search-toggle" onchange="onQuerySelected()" name="search">
+                            <option value="none" selected disabled>검색해보세요!</option>
+                            <option value="football" >축구</option>
+                            <option value="baseball" >야구</option>
+                            <option value="basketball" >농구</option>
+                            <option value="badminton" >배드민턴</option>
+                            <option value="tennis" >테니스</option>
+                            <option value="etc" >기타</option>
+                        </select>
+                        <button type="submit" class="search-btn flex">
+                            <img class="search-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxRx3iRICA1KnyXkKP7MgQJGVmnuLCcWBtj-_UCyVxCID3RvvC0bkZjcNgV9UfOJVEWz8&usqp=CAU" alt="search-btn">
+                        </button>
+                    </div>
+                </form>
+                <form action="/api/v1/posts/partners" method="get" class="search-box-input flex" >
+                    <div class="search-section flex">
+                        <input type="text" name="search" class="search-input" onchange="onChange(this)"/>
+                        <button type="submit" class="search-btn flex">
+                            <img class="search-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxRx3iRICA1KnyXkKP7MgQJGVmnuLCcWBtj-_UCyVxCID3RvvC0bkZjcNgV9UfOJVEWz8&usqp=CAU" alt="search-btn">
+                        </button>
+                    </div>
+                    
+                </form>
+            </div>
         </div>
     </div>
     <nav id="register-section flex">

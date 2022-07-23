@@ -47,13 +47,29 @@ body{
 
 
 /* 검색 박스 */
-.search-box{
+#search-container{
     width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box{
+    width: 100%;
+    height: 30%;
+}
+
+
+.search-box-input{
+    display: none;
+    width: 100%;
+    height: 30%;
+    
 }
 
 .search-section{
     width: 35%;
-    height: 30%;
+    height: 100%;
     border: 1px solid gray;
     border-radius: 100px;
 }
@@ -63,7 +79,7 @@ body{
     height: 90%;
     border: none;
     border-radius: 100px;
-    padding-right: 1vw;
+    /* padding-right: 1vw; */
     text-align: center;
 }
 
@@ -72,16 +88,17 @@ body{
 
 }
 .search-input{
-    width: 80%;
+    width: 79%;
     height: 90%;
     border: none;
     border-radius: 100px;
-    padding-right: 1vw;
+    /* padding-right: 1vw; */
     text-align: center;
 }
 .search-input:focus{
     outline: none;
 }
+
 .search-btn{
     border: none;
     width: 10%;
@@ -95,7 +112,6 @@ body{
 .search-img{
     width: 20px;
 }
-
 
 
 /* 게시물 등록 네비바 */
