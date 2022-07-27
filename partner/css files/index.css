@@ -47,35 +47,64 @@ body{
 
 
 /* 검색 박스 */
-.search-box{
+#search-container{
     width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box{
+    width: 100%;
+    height: 30%;
+}
+
+
+.search-box-input{
+    display: none;
+    width: 100%;
+    height: 30%;
+    
 }
 
 .search-section{
-    width: 70%;
-    height: 30%;
+    width: 35%;
+    height: 100%;
     border: 1px solid gray;
     border-radius: 100px;
 }
 
-.search-input{
-    width: 85%;
+.search-toggle{
+    width: 80%;
     height: 90%;
     border: none;
     border-radius: 100px;
-    padding-right: 1vw;
+    /* padding-right: 1vw; */
+    text-align: center;
+}
+
+.search-toggle:focus{
+    outline: none;
+
+}
+.search-input{
+    width: 79%;
+    height: 90%;
+    border: none;
+    border-radius: 100px;
+    /* padding-right: 1vw; */
     text-align: center;
 }
 .search-input:focus{
-    border: none;
-
+    outline: none;
 }
+
 .search-btn{
     border: none;
     width: 10%;
     height: 100%;
     display: flex;
-    margin-left: 1vw;
+    margin-left: 1%;
     background-color: #ffffff;
     border-radius: 100px;
     cursor: pointer;
@@ -85,20 +114,25 @@ body{
 }
 
 
-
 /* 게시물 등록 네비바 */
 #register-section{
     width: 100%;
     height: 10vh;
 }
+
+/* .register-section-right{
+    margin-left: 50%;
+    height: 10vh;
+    width: 50%;
+    background-color: aqua;
+} */
 .register-btn{
     background-color: cornflowerblue;
-    float: right;
-    margin-right: 15vw;
     margin-top: 2.5vh;
+    margin-left: 72.5%;
     height: 5vh;
-    width: 15%;
-    font-size: 1.4em;
+    width: 10%;
+    font-size: 1.25em;
     font-weight: 600;
     color: #ffffff;
     border: none;
