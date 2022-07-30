@@ -18,23 +18,62 @@ body{
 }
 
 #search{
-    width: 100%;
+    width: 78%;
     height: 20%;
-    
+    padding: 0 11% 0 11%;
+    border-bottom: 1px solid lightgray ; 
+
 }
 
 .title{
     width: 100%;
-
+    height: 15%;
+    
     display: flex;
 }
 
+/* 네비바 */
+
+/* .navbar__logo{
+    font-size: 10px;
+    margin-left: 30px;
+}
+
+.navbar__list{
+    display: flex;
+    margin-right: 60px;
+    white-space: nowrap;
+}
+
+.navbar__list li{
+    margin-right: 90px;
+}
+
+.navbar__log{
+    display: flex;
+    margin-right: 60px;
+    white-space: nowrap;
+}
+
+.navbar__log li{
+    margin-right: 50px;
+}
+
+.navbar__toggleBtn {
+    right: 10px;
+    font-size: 20px;
+    display: none;
+} */
+
 
 /* 글자 박스 */
-.paragraph-box{
-    width: 40%;
+#paragraph-container{
+    width: 35%;
     height: 20%;
-    padding-left: 10%;
+}
+.caption{
+    width: 100%;
+    text-align: left;
 }
 .title-section {
     font-size: 1.7em;
@@ -42,34 +81,43 @@ body{
 .paragraph{
     font-size: 1.2em;
     color: #999999;
+    
 }
 
 
 
 /* 검색 박스 */
 #search-container{
-    width: 60%;
+    width: 53%;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
 .search-box{
     width: 100%;
-    height: 30%;
+    height: 50%;
 }
 
 
 .search-box-input{
     display: none;
     width: 100%;
-    height: 30%;
+    height: 50%;
     
 }
 
 .search-section{
-    width: 35%;
-    height: 100%;
+    width: 88%;
+    height: 80%;
+    border: 1px solid gray;
+    border-radius: 100px;
+}
+
+.etc{
+    display: none;
+    width: 88%;
+    height: 80%;
     border: 1px solid gray;
     border-radius: 100px;
 }
@@ -87,55 +135,198 @@ body{
     outline: none;
 
 }
+
 .search-input{
-    width: 79%;
-    height: 90%;
+    width: 79.5%;
+    height: 100%;
     border: none;
     border-radius: 100px;
     /* padding-right: 1vw; */
     text-align: center;
 }
+
 .search-input:focus{
     outline: none;
 }
 
 .search-btn{
-    border: none;
     width: 10%;
-    height: 100%;
+    border: none;
+    height: auto;
     display: flex;
     margin-left: 1%;
     background-color: #ffffff;
     border-radius: 100px;
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
 }
 .search-img{
-    width: 20px;
+    width: 30px;
 }
 
 
-/* 게시물 등록 네비바 */
-#register-section{
-    width: 100%;
-    height: 10vh;
+/*  게시물 등록버튼 칸 */
+#register-container{
+    width: 12%;
 }
-
-/* .register-section-right{
-    margin-left: 50%;
-    height: 10vh;
-    width: 50%;
-    background-color: aqua;
-} */
 .register-btn{
-    background-color: cornflowerblue;
-    margin-top: 2.5vh;
-    margin-left: 72.5%;
+    background-color:cornflowerblue;
+    /* margin-top: 2.5vh;
+    margin-left: 72.5%; */
     height: 5vh;
-    width: 10%;
+    width: 80%;
     font-size: 1.25em;
     font-weight: 600;
     color: #ffffff;
     border: none;
     border-radius: 100px;
     cursor: pointer;
+}
+
+
+
+/* 필터링 네비바 */
+.btn{
+    background-color: #ffffff;
+    border: none;
+    border: 1px solid lightgray;
+}
+
+#filter{
+    width: 100%;
+    height: 10vh;
+    background-color: aqua;
+    overflow: hidden;
+    transition: 1s linear;
+}
+.main-filter{
+    width: 100%;
+    height: 10vh;
+    /* background-color: beige; */
+}
+.area{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 35%;
+    height: 100%;
+    /* background-color: firebrick; */
+    
+}
+.area-paragraph{
+    font-size: 1.5em;
+    width: 20%;
+    height: 40%;
+    font-weight: 800;
+}
+.area-choose-button{
+    width: 70%;
+    height: 40%;
+    text-align: center;
+}
+.area-button{
+    width: 25%;
+    font-size: 1.3em;
+    color: #999999;
+    cursor: pointer;
+    border-radius: 40px;
+    margin: 0 1% 0 1%;
+}
+
+
+/* 활동요일 */
+.date{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 35%;
+    height: 100%;
+    /* background-color: yellow; */
+}
+.date-paragraph{
+    font-size: 1.5em;
+    width: 20%;
+    height: 40%;
+    font-weight: 800;
+}
+.date-choose-button{
+    position: relative;
+    width: 80%;
+    height: 40%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.date-button{
+    width: 10%;
+    height: 100%;
+    border-radius: 100px;
+    margin: 0 1.5% 0 1.5%;
+    cursor: pointer;
+    color: #999999;
+}
+.btnn{
+    position: relative;
+}
+.monbtn{
+    position: absolute;
+    left: 4.5%;
+    opacity: 0.2;
+}
+
+
+
+
+.more-filter{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+    /* background-color: violet; */
+}
+.more{
+    width: 60%;
+    height: 40%;
+    font-size: 1.2em;
+    color: #999999;
+    font-weight: 500;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 10%;
+    /* background-color: antiquewhite; */
+}
+.more-button{
+    margin-left: 5%;
+    cursor: pointer;
+}
+.newest-button{
+    /* -webkit-appearance: none; */
+    appearance: none;
+    text-align-last: center;
+    width: 25%;
+    height: 35%;
+    border-radius: 10px;
+    font-size: 1em;
+    color: #999999;
+    font-weight: 400;
+    border: 2px solid #999999;
+    cursor: pointer;
+}
+.newest-button-option{
+    text-align: center;
+    height: 10%;
+}
+
+.extra-filter{
+    width: 100%;
+    height: 10vh;
+    background-color: coral;   
+}
+
+.filter-button:checked {
+    background-color: blue;
+    color: #ffffff;
 }
