@@ -84,13 +84,34 @@
                 <div class="date flex">
                     <div class="date-paragraph">활동요일</div>
                     <div class="date-choose-button">
-                        <input class="date-button  monbtn btn" name="date" value="mon" type="checkbox"><label for="mon">월</label></button>
-                        <button class="date-button btn">화</button>
-                        <button class="date-button btn">수</button>
-                        <button class="date-button btn">목</button>
-                        <button class="date-button btn">금</button>
-                        <button class="date-button btn">토</button>
-                        <button class="date-button btn">일</button>
+                        <div class="date-button-container">
+                            <input class="check mon-check" name="date" value="monday" type="checkbox" onclick="onClick(this)">
+                            <button class="mon date-button">월</button>
+                        </div>
+                        <div class="date-button-container">
+                            <input class="check tue-check" name="date" value="tueeday" type="checkbox" onclick="onClick(this)">
+                            <button class="tue date-button">화</button>
+                        </div>
+                        <div class="date-button-container">
+                            <input class="check wed-check" name="date" value="wednesday" type="checkbox" onclick="onClick(this)">
+                            <button class="wed date-button">수</button>
+                        </div>
+                        <div class="date-button-container">
+                            <input class="check thu-check" name="date" value="thursday" type="checkbox" onclick="onClick(this)">
+                            <button class="thu date-button">목</button>
+                        </div>
+                        <div class="date-button-container">
+                            <input class="check fri-check" name="date" value="friday" type="checkbox" onclick="onClick(this)">
+                            <button class="fri date-button">금</button>
+                        </div>
+                        <div class="date-button-container">
+                            <input class="check sat-check" name="date" value="saturday" type="checkbox" onclick="onClick(this)">
+                            <button class="sat date-button">토</button>
+                        </div>
+                        <div class="date-button-container">
+                            <input class="check sun-check" name="date" value="sunday" type="checkbox" onclick="onClick(this)">
+                            <button class="sun date-button">일</button>
+                        </div>
                     </div>
                 </div>
                 <div class="more-filter flex">

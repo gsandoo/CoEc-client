@@ -99,3 +99,22 @@ function actions(data){
         console.log(e.target.value);
         e.target.style.backgroundColor="blue";
     })
+
+
+    function onClick (box){
+        const mon = document.querySelector('.mon');
+        const tue = document.querySelector('.tue');
+        const wed = document.querySelector('.wed');
+        const thu = document.querySelector('.thu');
+        const fri = document.querySelector('.fri');
+        const sat = document.querySelector('.sat');
+        const sun = document.querySelector('.sun');
+        
+        if(box==box.checked==true){
+           
+            mon.style.backgroundColor="blue";
+        }
+        else{
+            mon.style.backgroundColor="white";
+        }
+    }
