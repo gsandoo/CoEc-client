@@ -251,14 +251,42 @@ body{
     font-weight: 800;
 }
 .date-choose-button{
-    position: relative;
     width: 80%;
     height: 40%;
    display: flex;
    justify-content: center;
    align-items: center;
+    background-color: blueviolet;
+}
+.date-button-container{
+    width: 14.28%;
+    height: 100%;
+    margin: 0 1% 0 1%;
+    background-color: brown;
+    position: relative;
+}
+.check{
+    width: 80%;
+    height: 75%;
+    opacity: 0.3;
+    position: absolute;
+    left: 4.5%;
+    top: 5%;
+    cursor: pointer;
 }
 .date-button{
+    width: 80%;
+    height: 100%;
+    border-radius: 100px;
+    margin: 0 0 0 10%;
+    color: #999999;
+    cursor: pointer;
+}
+
+.mon-check:checked~.mon{
+    
+}
+/* .mon-button{
     width: 10%;
     height: 100%;
     border-radius: 100px;
@@ -266,15 +294,20 @@ body{
     cursor: pointer;
     color: #999999;
 }
-.btnn{
-    position: relative;
-}
-.monbtn{
-    position: absolute;
-    left: 4.5%;
-    opacity: 0.2;
-}
 
+.monbtn{
+    position:absolute;
+    width: 10%;
+    height: 100%;
+    left: 5%;
+    border-radius: 100px;
+    margin: 0 1.5% 0 1.5%;
+    cursor: pointer;
+    color: #999999;
+}
+.mon-button{
+    background-color: #999999;
+} */
 
 
 
