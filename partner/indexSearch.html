@@ -10,9 +10,53 @@
  
     <link rel="stylesheet" href="./css files/index.css">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    
+    <!-- 활동장소 필터링 -->
+    <!-- <script type="text/javascript">
+        $(document).ready(function(){
+         var places = "";
+         $('.search-btn').click(function(){
+          $('input[name="places"]:checked').each(function(idx){
+           if(idx != 0){
+            console.log(idx)
+            places = places + ","
+           }
+           places = places + $(this).val();
+          });
+          places.val(places);
+         });
+        });  
+       </script> -->
+
+
+
+
+
+
+    <!-- 요일 필터링 jquery 코드 -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+         var date = "";
+         $('.search-btn').click(function(){
+          $('input[name="day"]:checked').each(function(idx){
+           if(idx != 0){
+            console.log(idx)
+            date = date + ","
+           }
+           date = date + $(this).val();
+          });
+          date.val(date);
+         });
+        });  
+       </script>
+    <!-- 폰트어썸 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />    <!-- 구글폰트 -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100;300&family=Roboto&display=swap');
     </style>
+
+
 </head>
 <body>
     <!-- <div class="navbar">
@@ -71,94 +115,106 @@
         </div>
 
         <!-- 필터 -> 누르지 않으면 url 전송 x -->
-        <div id="filter">
-            <div class="main-filter flex">
-                <div class="area flex">
-                    <div class="area-paragraph">활동장소</div>
-                    <div class="area-choose-button">
-                        <input class="area-button btn filter-button" type="button" name="places" value="시/도" selected>
-                        <input class="area-button btn filter-button" type="button" name="places" value="군/구">
-                        <input class="area-button btn filter-button" type="button" name="places" value="읍/면">
-                    </div>
-                </div>
-                <div class="date flex">
-                    <div class="date-paragraph">활동요일</div>
-                    <div class="date-choose-button">
-                        <div class="date-button-container">
-                            <input class="check mon-check" name="date" value="monday" type="checkbox" onclick="onClick(this)">
-                            <button class="mon date-button">월</button>
-                        </div>
-                        <div class="date-button-container">
-                            <input class="check tue-check" name="date" value="tueeday" type="checkbox" onclick="onClick(this)">
-                            <button class="tue date-button">화</button>
-                        </div>
-                        <div class="date-button-container">
-                            <input class="check wed-check" name="date" value="wednesday" type="checkbox" onclick="onClick(this)">
-                            <button class="wed date-button">수</button>
-                        </div>
-                        <div class="date-button-container">
-                            <input class="check thu-check" name="date" value="thursday" type="checkbox" onclick="onClick(this)">
-                            <button class="thu date-button">목</button>
-                        </div>
-                        <div class="date-button-container">
-                            <input class="check fri-check" name="date" value="friday" type="checkbox" onclick="onClick(this)">
-                            <button class="fri date-button">금</button>
-                        </div>
-                        <div class="date-button-container">
-                            <input class="check sat-check" name="date" value="saturday" type="checkbox" onclick="onClick(this)">
-                            <button class="sat date-button">토</button>
-                        </div>
-                        <div class="date-button-container">
-                            <input class="check sun-check" name="date" value="sunday" type="checkbox" onclick="onClick(this)">
-                            <button class="sun date-button">일</button>
+        <div class="filter showstep1">
+            <div class="content">
+                <div class="main-filter flex">
+                    <div class="area flex">
+                        <div class="area-paragraph">활동장소</div>
+                        <div class="area-choose-button flex">
+                            <div class="sido-area-container">
+                                <input class="place-check" type="checkbox" name="places" value="sido" onclick='sidoGetCheckboxValue(event)'>
+                                <button class="area-button sido btn">시/도</button>
+                            </div>
+                            <div class="gungu-area-container">
+                                <input class="place-check" type="checkbox" name="places" value="gungu" onclick='gunguGetCheckboxValue(event)'>
+                                <button class="area-button gungu btn ">군/구</button>
+                            </div>
+                            <div class="myeonup-area-container">
+                                <input class="place-check" type="checkbox" name="places" value="eupmyun" onclick='eupmyunGetCheckboxValue(event)'>
+                                <button class="area-button eupmyun btn ">읍/면</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="more-filter flex">
-                    <div class="more">
-                        더 자세히찾기
-                        <div class="more-button" onclick="filterClick()">&#9660;</div>
-                    </div>    
-                    <!-- 여기는 최신순 버튼 -->
-                    <select class="newest-button btn" name="newest">
-                        <option value="newest" selected class="newest-button-option filter-button">
-                            최신순
-                        </option>
-                        <option value="oldest" class="newest-button-option filter-button">
-                            오래된 순
-                        </option>
-                    </select>
-                </div>
-            </div>
-            <!-- 자세히찾기 누르면 펼쳐지는 부분 -->
-            <div class="extra-filter flex">
-                <div id="gender">
-                    <div class="gender extra-filter-description">성별</div>
-                    <div class="gender-choose-button">
-                        <button class="gender-button filter-button">여성</button>
-                        <button class="gender-button filter-button">남성</button>
+                    <div class="date flex">
+                        <div class="date-paragraph">활동요일</div>
+                        <div class="date-choose-button">
+                            <div class="date-button-container">
+                                <input class="date-check mon-check" name="day" value="monday" type="checkbox" onclick="monOnClick(event)">
+                                <button class="mon date-button">월</button>
+                            </div>
+                            <div class="date-button-container">
+                                <input class="date-check tue-check" name="day" value="tuesday" type="checkbox" onclick="tueOnClick(event)">
+                                <button class="tue date-button">화</button>
+                            </div>
+                            <div class="date-button-container">
+                                <input class="date-check wed-check" name="day" value="wednesday" type="checkbox" onclick="wedOnClick(event)">
+                                <button class="wed date-button">수</button>
+                            </div>
+                            <div class="date-button-container">
+                                <input class="date-check thu-check" name="day" value="thursday" type="checkbox" onclick="thuOnClick(event)">
+                                <button class="thu date-button">목</button>
+                            </div>
+                            <div class="date-button-container">
+                                <input class="date-check fri-check" name="day" value="friday" type="checkbox" onclick="friOnClick(event)">
+                                <button class="fri date-button">금</button>
+                            </div>
+                            <div class="date-button-container">
+                                <input class="date-check sat-check" name="day" value="saturday" type="checkbox" onclick="satOnClick(event)">
+                                <button class="sat date-button">토</button>
+                            </div>
+                            <div class="date-button-container">
+                                <input class="date-check sun-check" name="day" value="sunday" type="checkbox" onclick="sunOnClick(event)">
+                                <button class="sun date-button">일</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="more-filter flex">
+                        <div class="more">
+                            더 자세히찾기
+                            <div class="more-button">▼</div>
+                            <div class="more-button2 hide">▲</div>
+                        </div>
+                        <!-- 여기는 최신순 버튼 -->
+                        <select class="newest-button btn" name="newest">
+                            <option value="newest" selected class="newest-button-option filter-button">
+                                최신순
+                            </option>
+                            <option value="oldest" class="newest-button-option filter-button">
+                                오래된 순
+                            </option>
+                        </select>
                     </div>
                 </div>
-                <div id="age">
-                    <div class="age extra-filter-description">연령대</div>
-                    <select name="age" class="extra-filter-options">
-                        <option value="" disabled>선택</option>
-                        <option value="10" class="filter-button">10대</option>
-                        <option value="20" class="filter-button">20대</option>
-                        <option value="30" class="filter-button">30대</option>
-                        <option value="40" class="filter-button">40대</option>
-                        <option value="50" class="filter-button">50대</option>
-                        <option value="60" class="filter-button">60대</option>
-                    </select>
-                </div>
-                <div id="proficiency">
-                    <div class="proficiency extra-filter-description">숙련도</div>
-                    <select name="skilled" class="extra-filter-options">
-                        <option value="" disabled>선택</option>
-                        <option value="beginner" class="filter-button">10대</option>
-                        <option value="normal" class="filter-button">20대</option>
-                        <option value="expert" class="filter-button">30대</option>
-                    </select>
+                <!-- 자세히찾기 누르면 펼쳐지는 부분 -->
+                <div class="extra-filter flex">
+                    <div id="gender">
+                        <div class="gender extra-filter-description">성별</div>
+                        <div class="gender-choose-button">
+                            <button class="gender-button filter-button">여성</button>
+                            <button class="gender-button filter-button">남성</button>
+                        </div>
+                    </div>
+                    <div id="age">
+                        <div class="age extra-filter-description">연령대</div>
+                        <select name="age" class="extra-filter-options">
+                            <option value="" disabled>선택</option>
+                            <option value="10" class="filter-button">10대</option>
+                            <option value="20" class="filter-button">20대</option>
+                            <option value="30" class="filter-button">30대</option>
+                            <option value="40" class="filter-button">40대</option>
+                            <option value="50" class="filter-button">50대</option>
+                            <option value="60" class="filter-button">60대</option>
+                        </select>
+                    </div>
+                    <div id="proficiency">
+                        <div class="proficiency extra-filter-description">숙련도</div>
+                        <select name="skilled" class="extra-filter-options">
+                            <option value="" disabled>선택</option>
+                            <option value="beginner" class="filter-button">10대</option>
+                            <option value="normal" class="filter-button">20대</option>
+                            <option value="expert" class="filter-button">30대</option>
+                        </select>
+                    </div>
                 </div>
             </div>    
         </div>
@@ -168,13 +224,26 @@
     <!-- 게시물이띄워질 칸 -->
 
     <div id="posts">
-
+        <div class="posts-container">
+            
+        </div>
     </div>
+    <div class="buttons"></div>
+
+    <!-- <form action="#" id="pagination" method="get">
+        <input type="submit" name="page" value="1" onclick="hello()">
+        <input type="submit" name="page" value="2">
+        <input type="submit" name="page" value="3">
+        <input type="submit" name="page" value="4">
+        <input type="submit" name="page" value="5">
+    </form> -->
 
     
     
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js files/index.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>    
 </body>
 </html>
 

@@ -1,3 +1,6 @@
+/* ctrl+f 로 transition 에서 필터링 버튼 별 속도 설정 가능  */
+
+
 html {font-family: 'Cardo', serif;
 font-family: 'Do Hyeon', sans-serif;
 font-family: 'Jua', sans-serif;
@@ -22,7 +25,7 @@ body{
     height: 20%;
     padding: 0 11% 0 11%;
     border-bottom: 1px solid lightgray ; 
-
+    /* background: #000; */
 }
 
 .title{
@@ -190,21 +193,41 @@ body{
 .btn{
     background-color: #ffffff;
     border: none;
-    border: 1px solid lightgray;
+    border: 3px solid lightgray;
+    font-weight: 600;
+    transition: 0.4s linear;
 }
 
-#filter{
+.filter{
     width: 100%;
     height: 10vh;
     background-color: aqua;
+    /* overflow: hidden;
+    transition: 0.6s linear; */
+}
+.showstep1{
+    max-height: 10vh;
     overflow: hidden;
-    transition: 1s linear;
+    transition: 0.6s linear;
+}
+.showstep2{
+    max-height: 20vh;
+    overflow: hidden;
+    transition: 0.6s linear;
+}
+.content{
+    max-height: 30vh;
+    /* background-color: aqua; */
 }
 .main-filter{
     width: 100%;
     height: 10vh;
     /* background-color: beige; */
 }
+
+
+
+/* 활동장소 */
 .area{
     display: flex;
     justify-content: left;
@@ -216,23 +239,68 @@ body{
 }
 .area-paragraph{
     font-size: 1.5em;
-    width: 20%;
-    height: 40%;
+    width: 21%;
+    height: 30%;
     font-weight: 800;
+    /* background-color: blue; */
 }
+/* 시도군구면읍 콘테이너 */
+
 .area-choose-button{
-    width: 70%;
+    width: 69%;
     height: 40%;
     text-align: center;
+    /* background-color: #ffffff; */
 }
+
+.sido-area-container{
+    width: 33%;
+    /* background-color: darkgray; */
+    position: relative;
+}
+.gungu-area-container{
+    width: 34%;
+    /* background-color: fuchsia; */
+    position: relative;
+}
+.myeonup-area-container{
+    width: 33%;
+    /* background-color: bisque; */
+    position: relative;
+}
+
+
+/* 활동장소 체크박스 */
+.place-check{
+    width: 100%;
+    height: 75%;
+    opacity: 0;
+    position: absolute;
+    left: 0%;
+    top: 2%;
+    cursor: pointer;
+}
+
+input[class="place-check"]{
+    transform : scale(0.7);
+}
+
+/* 활동장소 버튼 */
 .area-button{
-    width: 25%;
+    padding-top:2% ;
+    width: 75%;
     font-size: 1.3em;
     color: #999999;
-    cursor: pointer;
+    /* cursor: pointer; */
     border-radius: 40px;
     margin: 0 1% 0 1%;
 }
+
+
+
+
+
+
 
 
 /* 활동요일 */
@@ -247,45 +315,53 @@ body{
 .date-paragraph{
     font-size: 1.5em;
     width: 20%;
-    height: 40%;
+    height: 30%;
     font-weight: 800;
 }
 .date-choose-button{
     width: 80%;
-    height: 40%;
+    height: 50%;
    display: flex;
    justify-content: center;
    align-items: center;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
 }
 .date-button-container{
     width: 14.28%;
     height: 100%;
     margin: 0 1% 0 1%;
-    background-color: brown;
+    /* background-color: brown; */
     position: relative;
 }
-.check{
+
+
+/* 요일 check input */
+.date-check{
     width: 80%;
     height: 75%;
-    opacity: 0.3;
+    opacity: 0;
     position: absolute;
-    left: 4.5%;
-    top: 5%;
+    left: 4%;
+    top: 7.5%;
     cursor: pointer;
 }
+
+
+/* 요일 date button */
 .date-button{
     width: 80%;
     height: 100%;
     border-radius: 100px;
+    border: 3px solid lightgray;
+    background-color: #ffffff;
     margin: 0 0 0 10%;
     color: #999999;
     cursor: pointer;
+    transition: 0.4s linear;
+    font-weight: 900;
 }
 
-.mon-check:checked~.mon{
-    
-}
+
 /* .mon-button{
     width: 10%;
     height: 100%;
@@ -324,7 +400,7 @@ body{
     height: 40%;
     font-size: 1.2em;
     color: #999999;
-    font-weight: 500;
+    font-weight: 900;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -334,7 +410,20 @@ body{
 .more-button{
     margin-left: 5%;
     cursor: pointer;
+    
 }
+.more-button2{
+    margin-left: 5%;
+    cursor: pointer;
+    animation-name: arrow;
+}
+.hide{
+    display: none;
+}
+@keyframes arrow {
+    0%{}
+}
+
 .newest-button{
     /* -webkit-appearance: none; */
     appearance: none;
@@ -359,7 +448,222 @@ body{
     background-color: coral;   
 }
 
-.filter-button:checked {
-    background-color: blue;
-    color: #ffffff;
+/* 게시글 검색 시 보여질 post */
+
+#posts{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 11% 0 11%;
+    width: 78%;
+    height: 75vh;
+    margin-top: 15vh;
+    /* background-color: darkgreen; */
 }
+
+.posts-container{
+    width: 100%;
+    height: auto;
+    /* background-color: antiquewhite; */
+    background-color: aqua;
+}
+.posts{
+    width: 25%;
+    height: 25vh;
+    margin: 0 auto;
+    background-color: yellow;
+    margin: 0 4.1% 0 4.1%;
+    border-radius: 50px;
+    margin-bottom: 5vh;
+    cursor: pointer;
+    transition: 0.4s;
+    outline: 3px solid lightgray;
+}
+.posts:hover{
+    background-color: aliceblue;
+    transition: 0.4s;
+}
+/* .content-display{
+    width: 100%;
+    height: 5vh;
+    background-color: pink;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10%;
+} */
+.top{
+    width: 100%;
+    height: 5vh;
+    background-color: plum;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10%;
+}
+.sports{
+    width: 50%;
+    height: 5vh;
+    background-color: plum;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    /* padding-left: 10%; */
+}
+.sports-img{
+    width: 20%;
+    height: 5vh;
+    background-color: yellowgreen;
+}
+.sports-name{
+    padding-left: 5%;
+}
+#status{
+    width: 40%;
+    height: 5vh;
+    background-color: peachpuff;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 5%;
+}
+.status{
+    width: 70%;
+    height: 5vh;
+    border-radius: 0 45px 40px 45px;
+    background-color: darkmagenta;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.member{
+    width: 100%;
+    height: 5vh;
+    background-color: olive;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10%;
+}
+.member-img{
+    width: 10%;
+    height: 5vh;
+    background-color: rebeccapurple;
+}
+.member-name{
+    padding-left: 3%;
+}
+.place{
+    width: 100%;
+    height: 5vh;
+    background-color: gold;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10%;
+}
+.place-img{
+    width: 10%;
+    height: 5vh;
+    background-color: darkblue;
+}
+.place-name{
+    padding-left: 3%;
+}
+.skilled{
+    width: 100%;
+    height: 5vh;
+    background-color: gray;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10%;
+}
+.skilled-img{
+    width: 10%;
+    height: 5vh;
+    background-color: orange;
+}
+.skilled-name{
+    padding-left: 3%;
+    margin-right: 3%;
+}
+.skilled-icon{
+
+}
+.baseline{
+    width: 100%;
+    height: 5vh;
+    background-color: plum;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10%;
+}
+.target{
+    width: 60%;
+    height: 5vh;
+    background-color: plum;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    /* padding-left: 10%; */
+}
+.target-img{
+    width: 20%;
+    height: 5vh;
+    background-color: yellowgreen;
+}
+.target-comment{
+    padding-left: 5%;
+}
+.likes{
+    width: 40%;
+    height: 5vh;
+    background-color: peachpuff;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 20%;
+}
+.likes-img{
+    margin-right: 5%;
+}
+.likes-count{
+    
+}
+/* .buttons{
+  position: relative;
+  padding: 1rem 0;
+  display: inline-flex;
+  justify-content: center;
+}
+.button {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    color: #333;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+  }
+
+  .button.active,
+  .button:hover {
+    color: #1f975d;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  
+  .prev {
+    position: absolute;
+    left: -2.5rem;
+  }
+  
+  .next {
+    position: absolute;
+    right: -2.5rem;
+  }
+  
+  ion-icon {
+    padding-top: 0.05rem;
+  } */
