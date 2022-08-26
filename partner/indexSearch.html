@@ -9,6 +9,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../partner/image/헤더/Coec.png">
  
     <link rel="stylesheet" href="./css files/index.css">
+    <link rel="stylesheet" href="./css files/register.css">
+
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 
     
@@ -28,6 +30,14 @@
          });
         });  
        </script> -->
+
+
+   
+
+
+
+
+
 
 
 
@@ -50,6 +60,220 @@
          });
         });  
        </script>
+
+       <script type="text/javascript">
+            //신청 글쓰기 파트
+            $(document).ready(function() {
+            $('.balloon2').on('keyup', function() {
+                $('#test_cnt').html("("+$(this).val().length+" / 100)");
+        
+                 if($(this).val().length > 1 ){
+                    $('.applyComplete').css({background:"blue"});
+                    $('.applyComplete').attr('disabled');
+                }
+                if($(this).val().length > 100) {
+                    $(this).val($(this).val().substring(0, 100));
+                    $('#test_cnt').html("(100 / 100)");
+                }
+            });
+            });
+
+
+
+            $(document).ready(function() {
+            $('.balloon3').on('keyup', function() {
+                $('#test_cnt3').html("("+$(this).val().length+" / 100)");
+        
+                 if($(this).val().length > 1 ){
+                    $('.next-submit').css({border:"1px solid blue"});
+                    $('.next-submit').css({color:"blue"});
+                }
+                if($(this).val().length > 100) {
+                    $(this).val($(this).val().substring(0, 100));
+                    $('#test_cnt').html("(100 / 100)");
+                }
+            });
+            });
+       </script>
+       
+   
+
+       <script type="text/javascript">
+         $(document).ready(function() {
+            $("input:radio[name=type]").click(function(){
+                if(
+                    $("input:radio[name=type]:checked")
+                    )
+                {$(".next").attr("disabled",false);
+                $(".next").css({border:"1px solid blue"});
+                $(".next").css({color: "blue"});
+                
+            }else{$(".next").attr("disabled",true);
+         }})
+
+
+         $("input:radio[name=sports]").click(function(){
+                if(
+                    $("input:radio[name=sports]:checked")
+                    )
+                {$(".next-2").attr("disabled",false);
+                $(".next-2").css({border:"1px solid blue"});
+                $(".next-2").css({color: "blue"});
+                
+            }else{$(".next-2").attr("disabled",true);
+         }})
+         
+
+         $("input:radio[name=genderWanted]").click(function(){
+                if(
+                    $("input:radio[name=genderWanted]:checked")
+                    )
+                {$(".next-7").attr("disabled",false);
+                $(".next-7").css({border:"1px solid blue"});
+                $(".next-7").css({color: "blue"});
+                
+            }else{$(".next-7").attr("disabled",true);
+         }})
+
+         $("input:radio[name=day]").click(function(){
+                if(
+                    $("input:radio[name=day]:checked")
+                    )
+                {$(".next-6").attr("disabled",false);
+                $(".next-6").css({border:"1px solid blue"});
+                $(".next-6").css({color: "blue"});
+                
+            }else{$(".next-6").attr("disabled",true);
+         }})
+    });
+
+
+
+    $(document).ready(function(){
+ 
+        // 라디오버튼 클릭시 이벤트 발생
+        $("input:radio[id=other]").click(function(){
+
+            if($("input[id=other]:checked").val() == "other"){
+                $("input:text[name=sports]").css({display:'flex'});
+                
+            }
+        });
+        });
+
+
+
+
+       </script>
+
+
+       
+
+
+
+<!-- 다음 , 이전 버튼 클릭시  -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        //프로그레스 바  
+        var progVal = $('progress').val();
+        console.log(progVal)
+        var popContainer = $('.reg-container').children("div.pop-register");
+        console.log(popContainer)
+        var btnPrev = $(".prev");
+        var btnNext = $(".nextBtn");
+
+        let _myIndexNumber = 0;
+
+        btnPrev.on("click", function ($e) {
+            _myIndexNumber -= 1;
+
+            myIndexFindPrev(_myIndexNumber);
+            //-1
+            // console.log(progVal)   
+        });
+        btnNext.on("click", function ($e) {
+            _myIndexNumber += 1;
+
+
+            myIndexFind(_myIndexNumber);
+            // +1
+            // console.log(progVal)
+        });
+
+
+
+
+        function myIndexFind($index) {
+            console.log($index)
+
+
+            var max = popContainer.length - 1;
+            console.log(max)
+            // 8
+            if ($index >= max) {
+                $(".next").attr("disabled", true);
+                $('.next').css({
+                    display: "none"
+                });
+                $('.next-submit').css({
+                    display: "block"
+                })
+            } else {
+
+                // $(".next").css({background: "blue"});
+                $('.next').css({
+                    display: "block"
+                });
+                $('.next-submit').css({
+                    display: "none"
+                })
+            }
+
+
+
+            console.log("다음 컨포넌트를 보여줍니다.");
+            $('.prev').attr('disabled', false);
+            popContainer.eq(_myIndexNumber - 1).removeClass("on").addClass("off")
+            popContainer.eq($index).removeClass("off").addClass("on")
+            $('progress').attr("value", progVal += 11);
+
+        }
+
+
+
+
+
+
+
+
+        function myIndexFindPrev($index) {
+            console.log($index)
+            console.log("hello")
+            if ($index <= 0) {
+                $('.prev').attr('disabled', true);
+            }
+            var _myIndexNumber = $index;
+            popContainer.eq(_myIndexNumber + 1).removeClass('on').addClass('off');
+            popContainer.eq(_myIndexNumber).removeClass("off").addClass("on");
+            $('progress').attr("value", progVal -= 11);
+        }
+    })
+</script>
+
+
+        
+<script type="text/javascript">
+    $(document).ready(function() {  
+       $('.register-btn').click(function(){
+        $('.background-register').addClass("show");
+       })
+    });
+  </script>
+    
+
+
+
+    
     <!-- 폰트어썸 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />    <!-- 구글폰트 -->
     <style>
@@ -110,7 +334,7 @@
                 </div>
             </div>
             <div id="register-container" class="flex">
-                <button class="register-btn">게시물 등록</button>
+                <button class="register-btn" type="button">게시물 등록</button>
             </div>
         </div>
 
@@ -123,15 +347,15 @@
                         <div class="area-choose-button flex">
                             <div class="sido-area-container">
                                 <input class="place-check" type="checkbox" name="places" value="sido" onclick='sidoGetCheckboxValue(event)'>
-                                <button class="area-button sido btn">시/도</button>
+                                <button class="area-button sido btn" type="button">시/도</button>
                             </div>
                             <div class="gungu-area-container">
                                 <input class="place-check" type="checkbox" name="places" value="gungu" onclick='gunguGetCheckboxValue(event)'>
-                                <button class="area-button gungu btn ">군/구</button>
+                                <button class="area-button gungu btn " type="button">군/구</button>
                             </div>
                             <div class="myeonup-area-container">
                                 <input class="place-check" type="checkbox" name="places" value="eupmyun" onclick='eupmyunGetCheckboxValue(event)'>
-                                <button class="area-button eupmyun btn ">읍/면</button>
+                                <button class="area-button eupmyun btn " type="button">읍/면</button>
                             </div>
                         </div>
                     </div>
@@ -186,12 +410,18 @@
                     </div>
                 </div>
                 <!-- 자세히찾기 누르면 펼쳐지는 부분 -->
-                <div class="extra-filter flex">
+                <div class="extra-filter ">
                     <div id="gender">
-                        <div class="gender extra-filter-description">성별</div>
-                        <div class="gender-choose-button">
-                            <button class="gender-button filter-button">여성</button>
-                            <button class="gender-button filter-button">남성</button>
+                        <div class="gender extra-filter-description flex">성별</div>
+                        <div class="gender-choose-button ">
+                            <div class="gender-w-container ">
+                                <input class="gender-check" type="checkbox" name="gender" value="female" onclick='femaleButton(event)'>
+                                <button type="button" class="gender-button femaleBtn ">여성</button>
+                            </div>
+                            <div class="gender-m-container left">
+                                <input class="gender-check" type="checkbox" name="gender" value="male" onclick='maleButton(event)'>
+                                <button type="button" class="gender-button maleBtn ">남성</button>
+                            </div>
                         </div>
                     </div>
                     <div id="age">
@@ -225,11 +455,342 @@
 
     <div id="posts">
         <div class="posts-container">
-            
         </div>
     </div>
-    <div class="buttons"></div>
+    
+    <div class="buttons" onclick=""></div>
+    <!-- 팝업 -->
+    <div class="background">
+        <div class="window">
+            <div class="popup">
+                <div class="close-button right" style="margin-right: 10%;">
+                    <button id="close">X</button>
+                </div>
+                <div class="title flex" style="width: 100%; height: 5%;  margin-bottom: 5%;">
+                    <h1>스포츠파트너</h1>
+                </div>
+                <div class="want-container">
+                    <div class="popup-section left">
+                        <div class="postInfoImg">
+                            <img src="" alt="">
+                        </div>
+                        <div class="information dataInfo">
+                            <!-- 근손실방지 -->
+                        </div>
+                        <div class="uploadAt right" style="float: right;">
+                            <!-- 2022-08-12 -->
+                        </div>
+                    </div>
+                    <div class="popup-section left">
+                        <div class="postInfoImg">
+                            <img src="./image/아이콘/아이콘/요일.jpg" alt="">
+                        </div>
+                        <div class="date-want dataInfo">월</div>
+                        <div class="date-comment postComment">요일을 원해요</div>
+                    </div>
+                    <div class="popup-section left">
+                        <div class="postInfoImg">
+                            <img src="./image/아이콘/아이콘/성별.jpg" alt="">
+                        </div>
+                        <div class="ageGender dataInfo" >
+                            20대 / 여성
+                        </div>
+                        <div class="date-comment postComment">을 원해요</div>
+                    </div>
+                    <div class="popup-section left">
+                        <div class="postInfoImg">
+                            <img src="./image/아이콘/아이콘/숙련도.jpg" alt="">
+                        </div>
+                        <div class="postComment">숙련도:</div>
+                        <div class="skilled-icon " style="margin-left: 5%;">
+                            <i class="fa fa-star" id="star1"></i>
+                            <i class="fa fa-star" id="star2"></i>
+                            <i class="fa fa-star" id="star3"></i>
+                            <i class="fa fa-star" id="star4"></i>
+                            <i class="fa fa-star" id="star5"></i>
+                        </div>
+                    </div>
+                    <div class="popup-section left">
+                        <div class="postInfoImg">
+                            <img src="./image/아이콘/아이콘/수상경력.jpg" alt="">
+                        </div>
+                        <div class="career-comment postComment" >수상경력이 다수예요</div>
+                    </div>
+                </div>
+                <div class="postInfo-container">
+                    <div class="info-section left">
+                        <div class="postInfoImg">
+                            <img src="./image/아이콘/아이콘/운동명.png" alt="종목이미지">
+                        </div>
+                        <div class="sports-name dataInfo">
+                            <!-- 배드민턴 -->
+                            
+                        </div>
+                    </div>
+                    <div class="info-section  left">
+                        <div class="postInfoImg">
+                            <img src="./image/아이콘/아이콘/인원.png" alt="">
+                        </div>
+                        <div class="member-count dataInfo">
+                        
+                        <!-- 6명 -->
+                        </div>
+                    </div>
+                    <div class="info-section  left">
+                        <div class="postInfoImg">
+                            <img src="./image/아이콘/아이콘/위치.png" alt="">
+                        </div>
+                        <div class="place-name dataInfo">
+                        d
+                        </div>
+                    </div>
+                    <div class="info-section left">
+                        <div class="postInfoImg">
+                            <img src="./image/아이콘/아이콘/기간.png" alt="">
+                        </div>
+                        <div class="schedule-date dataInfo">
+                        2022-10-31 ~ 2022-11-31
+                        </div>
+                    </div>
+                    <div class="flex post-comment">
+                        <div class="balloon flex">
+                            
+                        </div>
+                    </div>
+                    <div class="apply flex"><button type="button" class="apply-btn" onclick="showPopup2()">신청하기</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="background-2">
+        <div class="window">
+            <form action="" method="post">
+                <div class="popup">
+                    <div class="close-button right" style="margin-right: 10%;">
+                        <button id="close-2">X</button>
+                    </div>
+                    <div class="title flex" style="width: 100%; height: 5%; background-color: aliceblue; margin-bottom: 5%;">
+                        <h1>스포츠파트너</h1>
+                    </div>
+                    <div class="want-container">
+                        <div class="popup-section">게시자에게 하고 싶은말</div>
+                        <textarea class="balloon2" placeholder="100자이내 작성" name="comment" cols="30" rows="10"></textarea>
+                        <div id="test_cnt">(0 / 100)</div>
+                    </div>
+                    <div class="postInfo-container">
+                        <div class="info-section left">
+                            <div class="postInfoImg">
+                                <img src="./image/아이콘/아이콘/운동명.png" alt="종목이미지">
+                            </div>
+                            <div class="sports-name dataInfo">
+                                <!-- 배드민턴 -->
+                
+                            </div>
+                        </div>
+                        <div class="info-section  left">
+                            <div class="postInfoImg">
+                                <img src="./image/아이콘/아이콘/인원.png" alt="">
+                            </div>
+                            <div class="member-count dataInfo">
+                
+                            <!-- 6명 -->
+                            </div>
+                        </div>
+                        <div class="info-section  left">
+                            <div class="postInfoImg">
+                                <img src="./image/아이콘/아이콘/위치.png" alt="">
+                            </div>
+                            <div class="place-name dataInfo">
+                            d
+                            </div>
+                        </div>
+                        <div class="info-section left">
+                            <div class="postInfoImg">
+                                <img src="./image/아이콘/아이콘/기간.png" alt="">
+                            </div>
+                            <div class="schedule-date dataInfo">
+                            2022-10-31 ~ 2022-11-31
+                            </div>
+                        </div>
+                        <div class="flex post-comment">
+                            <div class="balloon flex">
+                                <h4>잘 부탁드립니다.</h4>
+                            </div>
+                        </div>
+                        <div class="apply flex">
+                            <button type="button" onclick="openPopup()">돌아가기</button>
+                            <button type="submit" class="applyComplete" disabled style="background-color: #999999"; >신청완료</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="background-register">
+        <div class="window">
+            <form action="" method="post">
+                <div class="popup" id="register-section">
+                    <div class="close-button right" style="margin-right: 10%;">
+                        <button id="close-3" type="button">X</button>
+                    </div>
+                    <div class="title right" style="width: 100%; height: 5%; margin-bottom: 5%;">
+                        <div class="title-register">
+                            스포츠파트너등록
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <progress value="11" max="99"></progress>
+                    </div>
+                    <div class="reg-container">
+                        <div class="pop-register on" >
+                            <div class="ask flex">원하는 파트너의 역할을 알려주세요 !</div>
+                            <div class="ask-container">
+                                <div class="choice"><input type="radio" class="menti" name="type" value="menti" >멘티 (가르치는사람)</div>
+                                <div class="choice"><input type="radio" class="mento" name="type" value="mentor">멘토 (배우는 사람)</div>
+                            </div>
+                            <div class="register-btn-container flex">
+                                <button type="button" disabled class="prev">이전</button>
+                                <button type="button" class="next nextBtn" name="nextBtn" disabled >다음</button>
+                            </div>
+                        </div>
+                        <div class="pop-register off" >
+                            <div class="ask flex">어떤 스포츠를 원하시나요 ?</div>
+                            <div class="ask-container">
+                                <div class="choice"><input type="radio" id="weight" name="sports" value="weight" >웨이트 트레이닝</div>
+                                <div class="choice"><input type="radio" id="running" name="sports" value="running">런닝</div>
+                                <div class="choice"><input type="radio" id="cycle" name="sports" value="cycle" >자전거</div>
+                                <div class="choice"><input type="radio" id="badminton" name="sports" value="badminton">배드민턴</div>
+                                <div class="choice"><input type="radio" id="tennis" name="sports" value="tennis" >테니스</div>
+                                <div class="choice"><input type="radio" id="soccer" name="sports" value="soccer">축구</div>
+                                <div class="choice"><input type="radio" id="basketball" name="sports" value="basketball" >농구</div>
+                                <div class="choice"><input type="radio" id="volleyball" name="sports" value="volleyball">배구</div>
+                                <div class=" choice left">
+                                    <div ><input type="radio" id="other" name="sports" value="other" >기타</div>
+                                    <div ><input type="text" id="other-textbox" name="sports" style="display: none;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="register-btn-container flex">
+                                <button type="button" disabled class="prev">이전</button>
+                                <button type="button" class="next-2 nextBtn" name="nextBtn" disabled >다음</button>
+                            </div>
+                        </div>
+                        <div class="pop-register off" >
+                            <div class="ask flex">몇명을 구하시나요 ?</div>
+                            <div class="ask-container">
+                                <div class="ask-member">인원</div>
+                                <div class="choice"><input type="number" class="memberCount" name="member" value="1" max="10" min="1" ></div>
+                            </div>
+                            
+                            <div class="register-btn-container flex">
+                                <button type="button" disabled class="prev">이전</button>
+                                <button type="button" class="next-3 nextBtn" name="nextBtn"  style="border: 1px solid blue; color:blue;">다음</button>
+                            </div>
+                        </div>
+                        
+                        <div class="pop-register off">
+                            <div class="ask flex">어디서 구하시나요?</div>
+                            <div class="ask-container">
 
+                            </div>
+                            
+                            <div class="register-btn-container flex">
+                                <button type="button" disabled class="prev">이전</button>
+                                <button type="button" class="next-3 nextBtn" name="nextBtn" >다음</button>
+                            </div>
+                        </div>
+                        <div class="pop-register off">
+                            <div class="ask flex">함께 활동할 운동 기간을 알려주세요.</div>
+                            <div class="ask-container">
+                                <div class="choice date-select left">
+                                    <div class="start-d left" style="margin:0 5% 0 5%; width: 20%;" > 시작요일 <p style="color: red; margin-right: 5%;">*</p></div>
+                                    <div class="right"><input type="date" class="form-control1" id="select-date" name="date-start" ></div>
+                                </div>
+                            </div>
+                            <div class="ask-container">
+                                <div class="choice date-select left">
+                                    <div class="end-d" style="margin:0 5% 0 5% "> 종료요일 </div>
+                                    <div class="right"><input type="date" class="form-control2" id="select-date" name="date-end"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="register-btn-container flex">
+                                <button type="button" disabled class="prev">이전</button>
+                                <button type="button" class="next-3 nextBtn" name="nextBtn" style="border: 1px solid blue; color:blue;" >다음</button>
+                            </div>
+                        </div>
+                        <div class="pop-register off">
+                            <div class="ask flex">선호하는 요일을 알려주세요</div>
+                            <div class="ask-container">
+                                <div class="choice"><input type="radio" class="select-day" name="day" value="MON" >월</div>
+                                <div class="choice"><input type="radio" class="select-day" name="day" value="TUE">화</div>
+                                <div class="choice"><input type="radio" class="select-day" name="day" value="WED">수</div>
+                                <div class="choice"><input type="radio" class="select-day" name="day" value="THU">목</div>
+                                <div class="choice"><input type="radio" class="select-day" name="day" value="FRI">금</div>
+                                <div class="choice"><input type="radio" class="select-day" name="day" value="SAT">토</div>
+                                <div class="choice"><input type="radio" class="select-day" name="day" value="SUN">일</div>
+                                <div class="choice"><input type="radio" class="select-day" name="day" value="other">상관없음</div>                           
+                             </div>
+                             
+                            <div class="register-btn-container flex">
+                                <button type="button" disabled class="prev">이전</button>
+                                <button type="button" class="next-6 nextBtn" name="nextBtn" disabled >다음</button>
+                            </div>
+                        </div>
+                        <div class="pop-register off" >
+                            <div class="ask flex">원하는 멘토의 성별을 알려주세요.</div>
+                            <div class="ask-container">
+                                <div class="choice"><input type="radio" class="menti" name="genderWanted" value="MALE" >남성</div>
+                                <div class="choice"><input type="radio" class="mento" name="genderWanted" value="FEMALE">여성</div>
+                                <div class="choice"><input type="radio" class="mento" name="genderWanted" value="other">상관없음</div>
+                            </div>
+                            
+                            <div class="register-btn-container flex">
+                                <button type="button" disabled class="prev">이전</button>
+                                <button type="button" class="next-7 nextBtn" name="nextBtn" disabled >다음</button>
+                            </div>
+                        </div>
+                        
+                        <div class="pop-register off">
+                            <div class="ask flex">원하는 멘티의 성별을 알려주세요.</div>
+                            <div class="ask-container">
+                                <div class="choice"><input type="radio" class="menti" name="genderWanted" value="MALE" >남성</div>
+                                <div class="choice"><input type="radio" class="mento" name="genderWanted" value="FEMALE">여성</div>
+                                <div class="choice"><input type="radio" class="mento" name="genderWanted" value="other">상관없음</div>
+                            </div>
+
+                            
+                            <div class="register-btn-container flex">
+                                <button type="button" disabled class="prev">이전</button>
+                                <button type="button" class="next-7 nextBtn" name="nextBtn" disabled >다음</button>
+                            </div>
+                        </div>
+                        <div class="pop-register off">
+                            <div class="ask flex">
+                                멘토/멘티 에게 하고 싶은 말을 입력해 주세요.
+                                <div>작성할 내용이 없으면 다음으로 넘어가 주세요.</div>
+                            </div>
+                            <div class="ask-container ">
+                                <textarea class="balloon3" placeholder="100자이내 작성" name="comment" cols="30" rows="10"></textarea>
+                                <div id="test_cnt3">(0 / 100)</div>
+                            </div>
+                            <div class="register-btn-container flex">
+                                <button type="button" disabled class="prev">이전</button>
+                                <button type="button" class="next" name="nextBtn" disabled >다음</button>
+                                <button type="submmit" class="next-submit" >다음</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="register-btn-container flex">
+                        <button type="button" disabled class="prev">이전</button>
+                        <button type="button" class="next" name="nextBtn" disabled >다음</button>
+                        <input type="submmit" class="next-submit" value="다음">
+                    </div> -->
+                </div>
+            </form>
+        </div>
+    </div>      
+<div>
     <!-- <form action="#" id="pagination" method="get">
         <input type="submit" name="page" value="1" onclick="hello()">
         <input type="submit" name="page" value="2">
@@ -242,6 +803,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js files/index.js"></script>
+    <script src="./js files/register.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>    
 </body>
