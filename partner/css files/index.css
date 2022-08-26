@@ -19,7 +19,16 @@ body{
     align-items: center;
     justify-content: center;
 }
-
+.right{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.left{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
 #search{
     width: 78%;
     height: 20%;
@@ -297,12 +306,6 @@ input[class="place-check"]{
 }
 
 
-
-
-
-
-
-
 /* 활동요일 */
 .date{
     display: flex;
@@ -420,9 +423,7 @@ input[class="place-check"]{
 .hide{
     display: none;
 }
-@keyframes arrow {
-    0%{}
-}
+
 
 .newest-button{
     /* -webkit-appearance: none; */
@@ -442,11 +443,83 @@ input[class="place-check"]{
     height: 10%;
 }
 
+
+
+
+/* 엑스트라  필터 */
 .extra-filter{
     width: 100%;
     height: 10vh;
-    background-color: coral;   
+    background-color: coral;  
+    display: flex; 
 }
+#gender{
+    width: 33%;
+    height: 10vh;
+    display: flex;
+    background-color: bisque;
+}
+.extra-filter-description{
+    width: 30%;
+    
+}
+.gender-choose-button{
+    width: 70%;
+    height: 10vh;
+    background-color: violet;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+.gender-w-container{
+    width: 33%;
+    height: 5vh;
+    position: relative;
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2%;
+    margin-left: 1%;
+   
+}
+.gender-m-container{
+    width: 34%;
+    height: 5vh;
+    position: relative;
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-right: 5%; */
+    
+}
+
+.gender-button{
+    transition: 0.4s linear;
+    font-weight: 900;
+    padding-top:2% ;
+    width: 80%;
+    border: 3px solid lightgrey;
+    font-size: 1.3em;
+    color: #999999;
+    /* cursor: pointer; */
+    border-radius: 40px;
+    margin: 0 1% 0 1%;
+}
+.gender-check{
+    width: 95%;
+    height: 90%;
+    opacity: 0;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    cursor: pointer;
+    z-index: 99;
+}
+
+
 
 /* 게시글 검색 시 보여질 post */
 
@@ -469,9 +542,10 @@ input[class="place-check"]{
 .posts{
     width: 25%;
     height: 25vh;
-    margin: 0 auto;
-    background-color: yellow;
-    margin: 0 4.1% 0 4.1%;
+    /* margin: 0 auto; */
+    /* background-color: yellow; */
+    margin-left: 4%;
+    margin-right: 4%;
     border-radius: 50px;
     margin-bottom: 5vh;
     cursor: pointer;
@@ -492,18 +566,19 @@ input[class="place-check"]{
     padding-left: 10%;
 } */
 .top{
-    width: 100%;
+    width: 89%;
     height: 5vh;
-    background-color: plum;
+    /* background-color: plum; */
     display: flex;
     justify-content: left;
     align-items: center;
     padding-left: 10%;
+    border-radius: 60px 80px 0 0;
 }
 .sports{
     width: 50%;
     height: 5vh;
-    background-color: plum;
+    /* background-color: plum; */
     display: flex;
     justify-content: left;
     align-items: center;
@@ -512,33 +587,37 @@ input[class="place-check"]{
 .sports-img{
     width: 20%;
     height: 5vh;
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
+    
 }
+
 .sports-name{
     padding-left: 5%;
 }
 #status{
-    width: 40%;
+    width: 50%;
     height: 5vh;
-    background-color: peachpuff;
+    /* background-color: peachpuff; */
     display: flex;
     justify-content: left;
     align-items: center;
     padding-left: 5%;
+    border-radius: 0 50px 0 0;
 }
 .status{
     width: 70%;
     height: 5vh;
     border-radius: 0 45px 40px 45px;
-    background-color: darkmagenta;
+    /* background-color: darkmagenta; */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 15%;
 }
 .member{
-    width: 100%;
+    width: 90%;
     height: 5vh;
-    background-color: olive;
+    /* background-color: olive; */
     display: flex;
     justify-content: left;
     align-items: center;
@@ -547,15 +626,15 @@ input[class="place-check"]{
 .member-img{
     width: 10%;
     height: 5vh;
-    background-color: rebeccapurple;
+    /* background-color: rebeccapurple; */
 }
 .member-name{
     padding-left: 3%;
 }
 .place{
-    width: 100%;
+    width: 90%;
     height: 5vh;
-    background-color: gold;
+    /* background-color: gold; */
     display: flex;
     justify-content: left;
     align-items: center;
@@ -564,15 +643,15 @@ input[class="place-check"]{
 .place-img{
     width: 10%;
     height: 5vh;
-    background-color: darkblue;
+    /* background-color: darkblue; */
 }
 .place-name{
     padding-left: 3%;
 }
 .skilled{
-    width: 100%;
+    width: 90%;
     height: 5vh;
-    background-color: gray;
+    /* background-color: gray; */
     display: flex;
     justify-content: left;
     align-items: center;
@@ -581,7 +660,11 @@ input[class="place-check"]{
 .skilled-img{
     width: 10%;
     height: 5vh;
-    background-color: orange;
+    /* background-color: orange; */
+}
+.skilled-img>img{
+    width: 100%;
+    height: 3vh;
 }
 .skilled-name{
     padding-left: 3%;
@@ -591,18 +674,19 @@ input[class="place-check"]{
 
 }
 .baseline{
-    width: 100%;
+    width: 90%;
     height: 5vh;
-    background-color: plum;
+    /* background-color: plum; */
     display: flex;
     justify-content: left;
     align-items: center;
     padding-left: 10%;
+    border-radius: 0 0 50px 50px;
 }
 .target{
     width: 60%;
     height: 5vh;
-    background-color: plum;
+    /* background-color: plum; */
     display: flex;
     justify-content: left;
     align-items: center;
@@ -611,7 +695,7 @@ input[class="place-check"]{
 .target-img{
     width: 20%;
     height: 5vh;
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
 }
 .target-comment{
     padding-left: 5%;
@@ -619,11 +703,12 @@ input[class="place-check"]{
 .likes{
     width: 40%;
     height: 5vh;
-    background-color: peachpuff;
+    /* background-color: peachpuff; */
     display: flex;
     justify-content: left;
     align-items: center;
     padding-left: 20%;
+    border-radius: 0 0 50px;
 }
 .likes-img{
     margin-right: 5%;
@@ -631,6 +716,223 @@ input[class="place-check"]{
 .likes-count{
     
 }
+
+/* 팝업 */
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    
+    /* 숨기기 */
+    z-index: -1;
+    opacity: 0;
+  }
+  .background-2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    
+    /* 숨기기 */
+    z-index: -1;
+    opacity: 0;
+  }
+  .background-register {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    
+    /* 숨기기 */
+    z-index: -1;
+    opacity: 0;
+  }
+  
+  .show {
+    opacity: 1;
+    z-index: 1000;
+    transition: all .5s;
+  }
+  
+  .window {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* background-color: blue; */
+  }
+  
+  .popup {
+    box-sizing: border-box;
+    position: absolute;
+    width: 30%;
+    height: 85%;
+    padding: 0 3% 0 3%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 5);
+    border-radius: 50px;
+    outline: 3px solid lightgray;
+    
+    
+    /* 초기에 약간 아래에 배치 */
+    transform: translate(-50%, -40%);
+  }
+  
+  .show .popup {
+    transform: translate(-50%, -50%);
+    transition: all .5s;
+  }
+.want-container{
+    width: 100%;
+    height: 30%;
+    /* background-color: violet; */
+    border-bottom: 5px dashed lightgray;
+    margin-bottom: 5%;
+    
+}
+.postInfo-container{
+    width: 100%;
+    height: 55%;
+    /* background-color: violet; */
+    /* border-bottom: 5px dashed lightgray; */
+    margin-bottom: 5%;
+}
+.close-button{
+    width: 100%;
+    height: 5%;
+}
+#close{
+    
+    height: 100%;
+    background-color: inherit;
+    border: none;
+    color: #999999;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#close-2{
+    
+    height: 100%;
+    background-color: inherit;
+    border: none;
+    color: #999999;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+  .popup-section{
+    width: 100%;
+    height: 10%;
+    margin-bottom: 4%;
+    /* background-color: beige; */
+}
+.info-section{
+    width: 100%;
+    height: 5.5%;
+    margin-bottom: 4%;
+    /* background-color: beige; */
+}
+.last{
+    width: 100%;
+    height: 10%;
+    /* background-color: beige; */
+    margin-bottom: 3%;
+    /* background-color: red; */
+}
+  .postInfoImg{
+    width: 7%;
+    height: 100%;
+    /* background-color: tomato; */
+    margin-right: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .postInfoImg>img{
+    width: 90%;
+    height: 100%;
+  }
+  .dataInfo{
+    
+    font-size: 16px;
+    font-weight:900;
+    margin-right: 4%;
+    background-color: aqua;
+  }
+  
+  .postComment{
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .post-comment{
+    width: 100%;
+    height: 35%;
+    /* background-color: aliceblue; */
+  }
+  .balloon {
+    position: relative;
+    background: #ffffff;
+    outline: 3px solid lightgray;
+    height: 80%;
+    width: 80%;
+    margin: 0 auto 10px;
+    border-radius: 10px;
+}
+
+.apply{
+    width: 100%;
+    height: 20%;
+    /* background-color: #999999; */
+    
+}
+.apply>button{
+    background-color:cornflowerblue;
+    /* margin-top: 2.5vh;
+    margin-left: 72.5%; */
+    height: 5vh;
+    width: 30%;
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #ffffff;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.4s linear;
+
+}
+.applyComplete{
+    background-color: #999999;
+}
+.balloon2{
+    width: 100%;
+    height: 60%;
+    border-radius: 50px;
+    border: none;
+    outline: 3px solid lightgray;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 10% 0 10%;
+  
+}
+
+/* 페이지네이션 */
 /* .buttons{
   position: relative;
   padding: 1rem 0;

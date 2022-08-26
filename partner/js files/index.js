@@ -112,7 +112,37 @@ fButtonAll.forEach(function(el){
 
     
 
+    function femaleButton(event){
+      let result = '';
+      const fButton = document.querySelector('.femaleBtn');
+      if(event.target.checked)  {
+        result = event.target.value;
+        console.log(result);
+        fButton.style.backgroundColor="cornflowerblue";
+        fButton.style.color="#ffffff";
+      }else if(event.target.checked==false) {
+        result = '';
+        fButton.style.backgroundColor="#ffffff";
+        fButton.style.color="#999999";
 
+    }
+  }
+
+  function maleButton(event){
+    let result = '';
+    const mButton = document.querySelector('.maleBtn');
+    if(event.target.checked)  {
+      result = event.target.value;
+      console.log(result);
+      mButton.style.backgroundColor="cornflowerblue";
+      mButton.style.color="#ffffff";
+    }else if(event.target.checked==false) {
+      result = '';
+      mButton.style.backgroundColor="#ffffff";
+      mButton.style.color="#999999";
+
+  }
+}
    
 
     // 활동장소 버튼 클릭시 
@@ -131,6 +161,9 @@ fButtonAll.forEach(function(el){
           sidoButton.style.color="#999999";
         }
     }
+
+
+    
 
     function gunguGetCheckboxValue(event)  {
         let result = '';
@@ -333,103 +366,137 @@ fButtonAll.forEach(function(el){
 
 
 
-  // 페이지네이션
+  // 게시글 띄우기
   
   const $searchPosts = document.querySelector('#posts');
-  // const buttons = document.querySelector('.buttons');
-  // const maxContent = 9;
-  // const maxButton = 5;
-  // let page = 1;
-
+  const $background = document.querySelector(".posts");
     const render= async()=>{
     const response =  await axios.get('https://jsonplaceholder.typicode.com/users')
-    .then(res=>contentTemplate(res.data)
-           
-    )
+    .then(res=>{contentTemplate(res.data);
+                
+    })
     
       }
  
   render();
   
-  
+  const $status = document.querySelector(".status");
   const contentTemplate = (post)=>{
       console.log(post)
-
+      const star = document.querySelector('.skilled-icon');
+      
       for(let i = 0 ; i < post.length ; i++){
         const item = post[i]
-        const content = `
-        <div class="posts">
-            <div class="top">
-                        <div class="sports ">
-                            <div class="sports-img">
-                                <!-- <img src="" alt="종목이미지"> -->
-                            </div>
-                            <div class="sports-name">
-                                ${item.sportsName}
-                            </div>
-                        </div>
-                        <div id="status">
-                            <div class="status">
-                              ${item.status}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="member ">
-                        <div class="member-img">
-                            <!-- <img src="" alt=""> -->
-                        </div>
-                        <div class="member-name">
-                          ${item.headCount}
-                        </div>
-                    </div>
-                    <div class="place ">
-                        <div class="place-img">
-                            <!-- <img src="" alt=""> -->
-                        </div>
-                        <div class="place-name">
-                          ${item.siGunGu}
-                        </div>
-                    </div>
-                    <div class="skilled ">
-                        <div class="skilled-img">
-                            <!-- <img src="" alt=""> -->
-                        </div>
-                        <div class="skilled-name">숙련도:</div>
-                        <div class="skilled-icon ">
-                            <i class="fa fa-star" id="star"></i>
-                            <i class="fa fa-star"></i>                     
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="baseline">
-                        <div class="target ">
-                            <div class="target-img">
-                                <!-- <img src="" alt=""> -->
-                            </div>
-                            <div class="target-comment">${item.contents}</div>  
-                        </div>
-                        <div class="likes ">
-                            <div class="likes-img">
-                                <i class="fa fa-heart"></i>
-                            </div>
-                            <div class="likes-count">
-                                ${item.interest}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         
-        `
+        // if(item.status=="모집완료"){
+        //   $status.style.backgroundColor="lightGray";
+        // }else{
+        //   $status.style.backgroundColor="blue";
+        // }
 
+        if(item.skilled==1 || item.skilled==2){
+          star.innerHTML='<i class="fa fa-star" id="star1"></i>'
+        }
+        else if(item.skilled==3 || item.skilled==4){
+          star.innerHTML='<i class="fa fa-star" id="star1"></i><i class="fa fa-star" id="star2"></i>'
+        }
+        if(item.skilled==5 || item.skilled==6){
+          star.innerHTML='<i class="fa fa-star" id="star1"></i><i class="fa fa-star" id="star2"></i><i class="fa fa-star" id="star3"></i>'
+        }
+        else if(item.skilled==7 || item.skilled==8 ){
+          star.innerHTML='<i class="fa fa-star" id="star1"></i><i class="fa fa-star" id="star2"></i><i class="fa fa-star" id="star3"></i><i class="fa fa-star" id="star4"></i>'
+        }
+        else if(item.skilled==9 || item.skilled==10){
+          star.innerHTML='<i class="fa fa-star" id="star1"></i><i class="fa fa-star" id="star2"></i><i class="fa fa-star" id="star3"></i><i class="fa fa-star" id="star4"></i><i class="fa fa-star" id="star5"></i>'
+        }
+        const content = `
+        <div class="posts" onclick="showPopup(${item.id})">
+        <div class="top">
+          <div class="sports">
+              <div class="sports-img flex">
+                   <img src="./image/아이콘/아이콘/운동명.png" alt="종목이미지"> 
+              </div>
+              <div class="sports-name">
+                  ${item.sportsName}
+              </div>
+          </div>
+          <div id="status">
+              <div class="status">
+                ${item.status}
+              </div>
+          </div>
+      </div>
+      <div class="member ">
+          <div class="member-img flex">
+              <img src="./image/아이콘/아이콘/인원.png" alt="">
+          </div>
+          <div class="member-name">
+            ${item.headCount}
+          </div>
+      </div>
+      <div class="place ">
+          <div class="place-img flex">
+              <img src="./image/아이콘/아이콘/위치.png" alt="">
+          </div>
+          <div class="place-name">
+            ${item.siDo}
+          </div>
+      </div>
+      <div class="skilled ">
+          <div class="skilled-img flex">
+              <img src="./image/아이콘/아이콘/숙련도.jpg" alt="">
+          </div>
+          <div class="skilled-name">숙련도:</div>
+          <div class="skilled-icon ">
+             
+          </div>
+      </div>
+      <div class="baseline">
+          <div class="target ">
+              <div class="target-img flex">
+                  <img src="./image/아이콘/아이콘/기간.png" alt="">
+              </div>
+              <div class="target-comment">${item.contents}</div>  
+          </div>
+          <div class="likes ">
+              <div class="likes-img">
+                  <i class="fa fa-heart"></i>
+              </div>
+              <div class="likes-count">
+                  ${item.interest}
+              </div>
+          </div>
+      </div>    
+  </div>
+        `;
       $searchPosts.insertAdjacentHTML('beforeend',content)
-      }
-    
-       
+      }  
+      
     }
+         
+    const applyBtn  =document.querySelector(".applyComplete");
+  applyBtn.addEventListener("click",apply);
+  
+    function apply(){
+      console.log("버튼을 눌렀습니다.")
+      
+      if(applyBtn.disabled==false) 
+      {alert("success");
+        location.reload();
+      }
+    }
+
+
+    let today = new Date();
+    console.log(today)
+
+ //페이지네이션
+ 
+ // const buttons = document.querySelector('.buttons');
+  // const maxContent = 9;
+  // const maxButton = 5;
+  // let page = 1;
+
 
 //   const render= async(page)=>{
 //     const response =  await axios.get('https://jsonplaceholder.typicode.com/users')
@@ -563,10 +630,4 @@ fButtonAll.forEach(function(el){
 
 
 
-
-
-
-  function hello(){
-    console.log("hello")
-  }
 
