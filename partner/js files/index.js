@@ -369,7 +369,7 @@ fButtonAll.forEach(function(el){
   // 게시글 띄우기
   
   const $searchPosts = document.querySelector('#posts');
-  const $background = document.querySelector(".posts");
+  
     const render= async()=>{
     const response =  await axios.get('https://jsonplaceholder.typicode.com/users')
     .then(res=>{contentTemplate(res.data);
@@ -411,7 +411,7 @@ fButtonAll.forEach(function(el){
         }
         const content = `
         <div class="posts" onclick="showPopup(${item.id})">
-        <div class="top">
+        <div class="top flex">
           <div class="sports">
               <div class="sports-img flex">
                    <img src="./image/아이콘/아이콘/운동명.png" alt="종목이미지"> 
@@ -468,6 +468,7 @@ fButtonAll.forEach(function(el){
           </div>
       </div>    
   </div>
+  
         `;
       $searchPosts.insertAdjacentHTML('beforeend',content)
       }  
@@ -489,6 +490,68 @@ fButtonAll.forEach(function(el){
 
     let today = new Date();
     console.log(today)
+
+
+
+
+
+
+    function strOnClick(event)  {
+    
+      const star1 = document.querySelector('.button-one>i');
+      const star2 = document.querySelector('.button-two>i');
+      const star3 = document.querySelector('.button-three>i');
+      const star4 = document.querySelector('.button-four>i');
+      const star5 = document.querySelector('.button-five>i');
+
+      if(event.target.checked==true && event.target.value==1)  {
+        
+        star1.style.color="blue";
+      }else if(event.target.value==1 && event.target.checked==false){
+        star1.style.color="lightgray";
+      } 
+      if(event.target.checked==true && event.target.value==2) {
+        star1.style.color="blue";
+        star2.style.color="blue";
+      }else if(event.target.value==2 && event.target.checked==false){
+        star1.style.color="lightgray";
+        star2.style.color="lightgray";
+      }
+      if(event.target.checked==true && event.target.value==3) {
+        star1.style.color="blue";
+        star2.style.color="blue";
+        star3.style.color="blue";
+      }else if(event.target.value==3 && event.target.checked==false){
+        star1.style.color="lightgray";
+        star2.style.color="lightgray";
+        star3.style.color="lightgray";
+      }
+       if(event.target.checked==true && event.target.value==4) {
+        star1.style.color="blue";
+        star2.style.color="blue";
+        star3.style.color="blue";
+        star4.style.color="blue";
+      }else if(event.target.value==4 && event.target.checked==false){
+        star1.style.color="lightgray";
+        star2.style.color="lightgray";
+        star3.style.color="lightgray";
+        star4.style.color="lightgray";
+      }
+       if(event.target.checked==true && event.target.value==5) {
+        star1.style.color="blue";
+        star2.style.color="blue";
+        star3.style.color="blue";
+        star4.style.color="blue";
+        star5.style.color="blue";
+      }else if(event.target.value==5 && event.target.checked==false){
+        star1.style.color="lightgray";
+        star2.style.color="lightgray";
+        star3.style.color="lightgray";
+        star4.style.color="lightgray";
+        star5.style.color="lightgray";
+      }
+  }
+ 
 
  //페이지네이션
  

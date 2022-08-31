@@ -1,11 +1,11 @@
-// const register = document.querySelector('.register-btn');
-// register.addEventListener("click",showPopupRegister);
+const register = document.querySelector('.register-btn');
+register.addEventListener("click",showPopupRegister);
 
 
 
   document.querySelector("#close").addEventListener("click",close);
-  document.querySelector("#close-2").addEventListener("click",close2);
-  document.querySelector("#close-3").addEventListener("click",close3);
+
+  document.querySelector("#close-3").addEventListener("click",closeThree);
 
 
   function showPopup (id) {
@@ -46,11 +46,11 @@
   function close () { 
     document.querySelector(".background").className = "background";
   }
-  function close2 () { 
-    document.querySelector(".background-2").className = "background-2";
-  }
+  // function closeTwo () { 
+  //   document.querySelector(".background-2 show").className = "background-2";
+  // }
 
-  function close3 () { 
+  function closeThree () { 
     document.querySelector(".background-register").className = "background-register";
   }
   // 신청팝업2
@@ -59,11 +59,10 @@
     document.querySelector(".background-2").className = "background-2 show";
   }
   
-  // function showPopupRegister(){
-  //   document.querySelector(".background-register").className = "background-register show";
-  //   const _myIndexNumber = 0;
+  function showPopupRegister(){
+    document.querySelector(".background-register").className = "background-register show";;
     
-  // }
+  }
 
 
   function openPopup(){
@@ -73,19 +72,6 @@
   }
   
 
-  function activeNext(){
-    const one= document.querySelector("#1");
-    const two= document.querySelector("#2");
-    const three= document.querySelector("#3");
-    const four= document.querySelector("#4");
-    const five= document.querySelector("#5");
-    const six= document.querySelector("#6");
-    const seven= document.querySelector("#7");
-    const eight= document.querySelector("#8");
-    const nine= document.querySelector("#9");
-
-    
-}
 
 function getDate() {
   var today = new Date();
