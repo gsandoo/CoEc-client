@@ -34,6 +34,20 @@ progress{
     padding: 5% 2% 5% 2%;
     box-sizing: border-box;
 }
+.map-input{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.map-input>input{
+    border: none;
+    background-color: inherit;
+    border-bottom: 1px solid lightgray;
+    width: 25%;
+    margin:0 2.5% 0 2.5%;
+    text-align: center;
+    font-size: 9px;
+}
 .choice{
     margin: 3% 0 3% 0;
 }
